@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume - Neha Manoj Patil | AIDS Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --primary: #7c3aed;
+      --secondary: #2563eb;
+      --gradient: linear-gradient(135deg, #7c3aed, #2563eb);
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --bg: #fafcff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .action-bar {
+      max-width: 850px;
+      margin: 0 auto 1.5rem auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.25rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .btn-back {
+      background: #ffffff;
+      color: var(--text-main);
+      border-color: var(--border);
+    }
+
+    .btn-back:hover {
+      background: #f1f5f9;
+      color: var(--primary);
+      border-color: #ddd6fe;
+    }
+
+    .btn-print {
+      background: var(--gradient);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3);
+    }
+
+    .btn-print:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.45);
+    }
+
+    .resume-sheet {
+      max-width: 850px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 3rem 3.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .header {
+      border-bottom: 2px solid var(--text-main);
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.75rem;
+      text-align: left;
+    }
+
+    .profile-photo {
+      width: 95px;
+      height: 95px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--primary);
+      box-shadow: 0 4px 14px rgba(79, 70, 229, 0.2);
+      flex-shrink: 0;
+    }
+
+    .header-text {
+      flex-grow: 1;
+    }
+
+    .name {
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--text-main);
+      margin-bottom: 0.35rem;
+    }
+
+    .title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.65rem;
+    }
+
+    .contact-info {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .contact-info span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .contact-info a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      color: var(--primary);
+    }
+
+    .section {
+      margin-bottom: 1.5rem;
+    }
+
+    .sec-title {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-main);
+      border-bottom: 1px solid #cbd5e1;
+      padding-bottom: 0.3rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .sec-desc {
+      font-size: 0.925rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .entry {
+      margin-bottom: 1rem;
+    }
+
+    .entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 0.95rem;
+    }
+
+    .entry-title {
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .entry-meta {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .entry-sub {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .bullets {
+      list-style-type: disc;
+      padding-left: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .declaration-box {
+      border-top: 1px dashed #cbd5e1;
+      padding-top: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .declaration-sign {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+      }
+
+      .action-bar {
+        display: none !important;
+      }
+
+      .resume-sheet {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="action-bar">
+    <a href="index.html" class="btn btn-back">
+      <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+    </a>
+    <button onclick="window.print()" class="btn btn-print">
+      <i class="fa-solid fa-print"></i> Print / Save as PDF
+    </button>
+  </div>
+
+  <main class="resume-sheet">
+    <header class="header">
+      <div class="header-flex">
+        <img src="profile.jpg" alt="Neha Manoj Patil" class="profile-photo">
+        <div class="header-text">
+          <h1 class="name">NEHA MANOJ PATIL</h1>
+          <p class="title">B.Tech – Artificial Intelligence & Data Science (AIDS)</p>
+          <div class="contact-info">
+            <span><i class="fa-solid fa-location-dot"></i> Dahanu Gaon, Tal. Dahanu, Dist. Palghar, Maharashtra</span>
+            <span>•</span>
+            <span><i class="fa-solid fa-phone"></i> +91 7620627271</span>
+            <span>•</span>
+            <span><i class="fa-solid fa-envelope"></i> <a href="mailto:nehapatil2210@gmail.com">nehapatil2210@gmail.com</a></span>
+            <span>•</span>
+            <span><i class="fa-brands fa-linkedin"></i> <a href="https://linkedin.com/in/neha-patil" target="_blank">linkedin.com/in/neha-patil</a></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section">
+      <h2 class="sec-title">CAREER OBJECTIVE</h2>
+      <p class="sec-desc">
+        Motivated B.Tech student in Artificial Intelligence & Data Science seeking an entry-level opportunity to apply my programming, problem-solving, and teamwork skills, while gaining practical experience and contributing to organizational growth.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="sec-title">EDUCATION</h2>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Bachelor of Technology – Artificial Intelligence & Data Science (AIDS)</span>
+          <span class="entry-meta">2nd Year (Current)</span>
+        </div>
+        <div class="entry-sub">R. C. Patel Institute of Technology, Shirpur &nbsp;|&nbsp; <strong>CGPA: 7.27 / 10</strong></div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Higher Secondary Certificate (HSC)</span>
+          <span class="entry-meta">2025</span>
+        </div>
+        <div class="entry-sub">S R K Vadkun Junior College, Dahanu &nbsp;|&nbsp; <strong>Score: 52.17%</strong></div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Secondary School Certificate (SSC)</span>
+          <span class="entry-meta">2023</span>
+        </div>
+        <div class="entry-sub">K L Ponda High School, Dahanu &nbsp;|&nbsp; <strong>Score: 80.00% (Distinction)</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="sec-title">TECHNICAL SKILLS</h2>
+      <ul class="bullets">
+        <li><strong>Programming Languages:</strong> Python (Beginner), C (Beginner), Java (Basic)</li>
+        <li><strong>Current Learning:</strong> Python Advanced & Relational SQL</li>
+        <li><strong>Core Concepts:</strong> Object-Oriented Programming (OOPS), Procedural Programming, Algorithms</li>
+        <li><strong>Tools & Platforms:</strong> Git, GitHub, VS Code, MS CIT (Certified)</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="sec-title">ACADEMIC PROJECTS</h2>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">E-Learning Platform With Quizzes</span>
+          <span class="entry-meta">Academic Project</span>
+        </div>
+        <p class="sec-desc">
+          Developed an educational web platform facilitating modular topic study, timed quiz assessments, automatic score calculation, and student performance tracking.
+        </p>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Apartment Society Management System</span>
+          <span class="entry-meta">Academic Project</span>
+        </div>
+        <p class="sec-desc">
+          Designed a residential society portal handling flat/resident directories, maintenance billing calculations, digital complaint handling, and notice broadcasts.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="sec-title">CERTIFICATIONS & WORKSHOPS</h2>
+      <ul class="bullets">
+        <li><strong>Python for Beginners:</strong> Pentasoft Academy (2026)</li>
+        <li><strong>OOPS through Java:</strong> CodeChef (2026)</li>
+        <li><strong>C Programming:</strong> CodeChef (2025)</li>
+        <li><strong>MS CIT Beginners:</strong> Pentasoft Academy (2023)</li>
+        <li><strong>Dataverse “FROM PROFILE TO PROJECT”:</strong> Certificate of Participation</li>
+        <li><strong>Git & GitHub Workshop:</strong> Distributed Version Control & Repository Collaboration</li>
+        <li><strong>GDG “Think in C” Workshop:</strong> Google Developer Groups</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="sec-title">ACHIEVEMENTS</h2>
+      <ul class="bullets">
+        <li><strong>“Taluka Level” Badminton Competition:</strong> Recognized participant and competitor (2023)</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="sec-title">SOFT SKILLS</h2>
+      <p class="sec-desc">
+        Communication &nbsp;•&nbsp; Teamwork &nbsp;•&nbsp; Problem Solving &nbsp;•&nbsp; Time Management &nbsp;•&nbsp; Adaptability
+      </p>
+    </section>
+
+    <section class="section declaration-box">
+      <h2 class="sec-title">DECLARATION</h2>
+      <p class="sec-desc">
+        I hereby declare that the information provided above is true to the best of my knowledge.
+      </p>
+      <div class="declaration-sign">
+        <span><strong>Place:</strong> DAHANU</span>
+        <span><strong>Signature:</strong> Neha Manoj Patil</span>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
